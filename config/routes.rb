@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'users/show'
+    get 'users/edit'
+  end
   # ユーザ用
   # URL /customers/sign_in ...
   devise_for :users, skip: [:passwords], controllers: {
@@ -7,15 +11,28 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
+  # ゲストログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
   scope module: :public do
-      root to: 'reviews#index'
-      resources :reviews, only: [:new,
-                                 :create,
-                                 :index,
-                                 :show,
-                                 :edit,
-                                 :update,
-                                 :destroy]
+    # トップページ
+    root to: 'reviews#index'
+
+    # users
+    get 'users/mypage' => 'users#show'
+    get 'users/infomation/edit' => 'users#edit'
+    patch 'users/infomation' => 'users#update'
+
+    # revies
+    resources :reviews, only: [:new,
+                               :create,
+                               :index,
+                               :show,
+                               :edit,
+                               :update,
+                               :destroy]
   end
 
 # ------------------------------------------------------------------------------
