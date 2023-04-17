@@ -9,6 +9,10 @@ class User < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  # バリテーション
+  validates :name, presence: true
+  validates :email, presence: true
+
   # プロフィール画像　保存
   has_one_attached :profile_image
 

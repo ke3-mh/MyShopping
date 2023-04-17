@@ -1,11 +1,19 @@
 <h1>マイページ</h1>
-
 <!-- ユーザーの詳細 -->
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
 　<h3><%= @user.name %></h3>
-  <h3>いいね👍 <%= @reviews.count %></h3>
-  <h3>投稿📁 <%= @reviews.count %></h3>
+  <!--<h3>いいね👍 <%= @goods.count %></h3>-->
+  <!--<h3>投稿📁 <%= @reviews.count %></h3>-->
+  <h3><%= link_to "いいね👍 #{@goods.count}", users_path %></h3>
+  <h3><%= link_to "投稿📁 #{@reviews.count}", users_path %></h3>
   <h3><%= @user.email %></h3>
-  <%= link_to "編集", users_infomation_edit_path, class:"btn btn-success font-weight-bold" %>
+  <h3><%= link_to "編集", users_infomation_edit_path %></h3>
 </div>
+
+<!--<p>テスト</p>-->
+<!--<script type="text/javascript">-->
+<!--  $(document).ready(function() {-->
+<!--    $("p").text("成功！！");-->
+<!--  });-->
+<!--</script>-->

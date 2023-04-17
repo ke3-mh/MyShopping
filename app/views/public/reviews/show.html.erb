@@ -1,2 +1,8 @@
-<h1>Public::Reviews#show</h1>
-<p>Find me in app/views/public/reviews/show.html.erb</p>
+<h1>投稿詳細画面</h1>
+
+<p>
+  <strong>images:</strong>
+  <% @review.item_images.each do |image|%>
+    <%= image_tag image.variant(resize: "150x150") %>
+  <% end %>
+</p>

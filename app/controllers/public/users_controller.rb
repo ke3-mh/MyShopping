@@ -11,10 +11,20 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(user_params)
-    redirect_to users_mypage_path
+    if @user.update(user_params)
+      redirect_to users_mypage_path
+    else
+      render :edit
+    end
   end
 
+  def index
+
+  end
+
+  def goodlist
+
+  end
 
   private
 

@@ -22,8 +22,10 @@ Rails.application.routes.draw do
 
     # users
     get 'users/mypage' => 'users#show'
+    get 'users' => 'users#index'
     get 'users/infomation/edit' => 'users#edit'
     patch 'users/infomation' => 'users#update'
+    get 'users/goods' => 'users#goodlist'
 
     # revies
     resources :reviews, only: [:new,
