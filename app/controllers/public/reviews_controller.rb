@@ -6,8 +6,11 @@ class Public::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.save
-    redirect_to review_path(@review.id)
+    if @review.save
+     redirect_to review_path(@review.id)
+    else
+      render :new
+    end
   end
 
   def index
@@ -29,6 +32,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:name, :caption, item_images: [])
+    # params.require(:review).permit(:name, :caption, item_images: [])
+    params.require(:review).permit(:name, :caption, :item_image)
   end
 end

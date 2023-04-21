@@ -15,7 +15,8 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
 require("jquery")
+require('./preview')
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()

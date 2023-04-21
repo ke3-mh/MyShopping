@@ -3,16 +3,22 @@
 <!--入力フォーム-->
 <%= form_with model: @review do |f| %>
 
+  <!--<div class="field">-->
+  <!--  <%= f.label :item_images %>-->
+  <!--  <%= f.file_field :item_images ,multiple: true, accept: "image/*"%>-->
+  <!--</div>-->
+  
+  <div id="new-image"></div>
   <div class="field">
-    <%= f.label :item_images %>
-    <%= f.file_field :item_images ,multiple: true, accept: "image/*"%>
+    <%= f.label :item_image %>
+    <%= f.file_field :item_image %>
   </div>
 
 　<div class="field">
     <%= f.label :商品名 %>
     <%= f.text_field :name, id:"inputName", placeholder:"商品名"%>
   </div>
-
+  
   <div class="field">
     <%= f.label :コメント %>
     <%= f.text_field :caption, id:"inputName"%>

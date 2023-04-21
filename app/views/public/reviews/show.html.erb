@@ -1,8 +1,22 @@
 <h1>投稿詳細画面</h1>
 
-<p>
-  <strong>images:</strong>
-  <% @review.item_images.each do |image|%>
-    <%= image_tag image.variant(resize: "150x150") %>
-  <% end %>
-</p>
+
+
+
+<div class="text-center">
+  <div class="card review-card ">
+    <%= image_tag @review.item_image, class: "card-img-top" if @review.item_image.attached? %>
+    <div class="card-body">
+      <div class="review-name">
+        <%= @review.name %>
+      </div>
+      <hr>
+      <p class="card-text">
+        <div class="review-title">レビュー</div>
+        <div class="review-text d-flex justify-content-start">
+          <%= safe_join(@review.caption.split("\n"),tag(:br)) %>
+        </div>
+      </p>
+    </div>
+  </div>
+</div>
