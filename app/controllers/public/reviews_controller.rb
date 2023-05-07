@@ -7,7 +7,7 @@ class Public::ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-     redirect_to review_path(@review.id)
+      redirect_to review_path(@review.id)
     else
       render :new
     end
@@ -18,6 +18,7 @@ class Public::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @user = User.find(@review.user_id)
   end
 
   def edit
@@ -33,6 +34,6 @@ class Public::ReviewsController < ApplicationController
 
   def review_params
     # params.require(:review).permit(:name, :caption, item_images: [])
-    params.require(:review).permit(:name, :caption, :item_image)
+    params.require(:review).permit(:name, :caption, :item_image, :tag)
   end
 end

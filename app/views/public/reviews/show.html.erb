@@ -5,18 +5,16 @@
 
       <div class="text-center">
         <div class="card review-card ">
-          <%= image_tag @review.item_image, class: "card-img-top" if @review.item_image.attached? %>
+          <%= image_tag @review.item_image, size: '500x400', class: "card-img-top" if @review.item_image.attached? %>
           <div class="card-body">
-            <div class="review-name">
-              <%= @review.name %>
-            </div>
             <hr>
-            <p class="card-text">
-              <div class="review-title">レビュー</div>
-              <div class="review-text d-flex justify-content-start">
-                <%= safe_join(@review.caption.split("\n"),tag(:br)) %>
-              </div>
-            </p>
+            <div class="review-tag border rounded-pill "><%="　" + "#{@review.tag}" + "　" %> </div>
+            <h3 class="review-name d-flex justify-content-start"><%= @review.name %></h3>
+            <p class="card-text"><%= safe_join(@review.caption.split("\n"),tag(:br)) %></p>
+            <div class="d-flex justify-content-start">
+               <%= image_tag @user.get_profile_image(100,100) %>
+               <div class="align-self-end"><%= @user.name %></div>
+            </div>
           </div>
         </div>
       </div>

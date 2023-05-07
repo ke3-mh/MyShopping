@@ -1,11 +1,13 @@
 class Review < ApplicationRecord
-  has_many :tag, dependent: :destroy
   has_many :goods, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  belongs_to :user
 
   # バリテーション
   validates :item_image, presence: true
   validates :name, presence: true
+  validates :tag,presence:true
   validates :caption, presence: true
 
   # 商品画像　保存
