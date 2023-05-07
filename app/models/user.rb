@@ -10,11 +10,12 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   # バリテーション
-  validates :name, presence: true
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :email, presence: true
 
   # プロフィール画像　保存
   has_one_attached :profile_image
+
 
   def get_profile_image(width, height)
     unless profile_image.attached?

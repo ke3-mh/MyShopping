@@ -3,22 +3,22 @@ if (document.URL.match(/new/)){
 
     const createImageHTML = (blob) => {
       const imageElement = document.getElementById('new-image');
-      
+
       const blobImage = document.createElement('img');
-      blobImage.setAttribute('class', 'new-img') 
+      blobImage.setAttribute('class', 'new-img')
       blobImage.setAttribute('src', blob);
-      
+
       imageElement.appendChild(blobImage);
     };
 
     document.getElementById('review_item_image').addEventListener('change', (e) =>{
       // console.log(e);
-      
-      const imageContent = document.querySelector('img'); 
-      if (imageContent){ 
-        imageContent.remove(); 
-      } 
-      
+
+      const imageContent = document.querySelector('img');
+      if (imageContent){
+        imageContent.remove();
+      }
+
       const file = e.target.files[0];
       const blob = window.URL.createObjectURL(file);
       createImageHTML(blob);

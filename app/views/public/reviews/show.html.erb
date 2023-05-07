@@ -1,22 +1,26 @@
-<h1>投稿詳細画面</h1>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>投稿詳細画面</h2>
 
-
-
-
-<div class="text-center">
-  <div class="card review-card ">
-    <%= image_tag @review.item_image, class: "card-img-top" if @review.item_image.attached? %>
-    <div class="card-body">
-      <div class="review-name">
-        <%= @review.name %>
-      </div>
-      <hr>
-      <p class="card-text">
-        <div class="review-title">レビュー</div>
-        <div class="review-text d-flex justify-content-start">
-          <%= safe_join(@review.caption.split("\n"),tag(:br)) %>
+      <div class="text-center">
+        <div class="card review-card ">
+          <%= image_tag @review.item_image, class: "card-img-top" if @review.item_image.attached? %>
+          <div class="card-body">
+            <div class="review-name">
+              <%= @review.name %>
+            </div>
+            <hr>
+            <p class="card-text">
+              <div class="review-title">レビュー</div>
+              <div class="review-text d-flex justify-content-start">
+                <%= safe_join(@review.caption.split("\n"),tag(:br)) %>
+              </div>
+            </p>
+          </div>
         </div>
-      </p>
+      </div>
+
     </div>
   </div>
 </div>

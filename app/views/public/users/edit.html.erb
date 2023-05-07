@@ -1,65 +1,45 @@
-<h1>プロフィール編集</h1>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>User info</h2>
+    <%= form_with model: @user, url: users_infomation_path do |f| %>
+      <%= render 'layouts/errors', obj: @user %>
 
-<!--バリデーションエラー-->
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<!--入力フォーム-->
-<%= form_with model: @user, url: users_infomation_path do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email, id:"inputName", placeholder:"メールアドレス"%>
-  </div>
-
-  <div class="field">
-    <%= image_tag @user.get_profile_image(100,100), id: "img_prev" %>
-    <%= f.label :profile_image %>
-    <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-
-    <script type="text/javascript">
-      $(function() {
-        function readURL(input) {
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-              $('#img_prev').attr('src', e.target.result);
+      <div class="form-group">
+        <%= f.label :profile_image %></br>
+        <%= image_tag @user.get_profile_image(100,100), id: "img_prev" %></br>
+        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+        <script type="text/javascript">
+          $(function() {
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  $('#img_prev').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+              }
             }
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-        $("#user_profile_image").change(function() {
-          readURL(this);
-        });
-      });
-    </script>
+            $("#user_profile_image").change(function() {
+              readURL(this);
+            });
+          });
+        </script>
+      </div>
 
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control name" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control email" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
   </div>
-
-  <%= f.submit "変更を保存" %>
-<% end %>
-
-<!--ここでプレビュー用のimgタグを準備。プレビューしてない時は出現しない。-->
-<!--<img id="preview_profile_image" style="width:5%;">-->
-
-<!--<script>-->
-<!--  $('#user_profile_image').on('change', function (e) {-->
-<!--    var reader = new FileReader();-->
-<!--    reader.onload = function (e) {-->
-<!--        $("#preview_profile_image").attr('src', e.target.result);-->
-<!--    }-->
-<!--    reader.readAsDataURL(e.target.files[0]);-->
-<!--});-->
-<!--</script>-->
+</div>

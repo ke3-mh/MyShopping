@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     patch 'users/infomation' => 'users#update'
     get 'users/goods' => 'users#goodlist'
 
-    # revies
+    # reviews
     resources :reviews, only: [:new,
                                :create,
                                :index,

@@ -1,28 +1,51 @@
-<h1>投稿内容入力</h1>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
-<!--入力フォーム-->
-<%= form_with model: @review do |f| %>
+      <h1>投稿内容入力</h1>
 
-  <!--<div class="field">-->
-  <!--  <%= f.label :item_images %>-->
-  <!--  <%= f.file_field :item_images ,multiple: true, accept: "image/*"%>-->
-  <!--</div>-->
-  
-  <div id="new-image"></div>
-  <div class="field">
-    <%= f.label :item_image %>
-    <%= f.file_field :item_image %>
+      <!--入力フォーム-->
+      <%= form_with model: @review do |f| %>
+        <%= render 'layouts/errors', obj: @review %>
+
+        <div class="form-group">
+          <%= f.label :item_image %>
+          <div id="new-image"><%= image_tag 'no_review_image.jpg', size: '500x400', id: "item_image_prev" %></div>
+          <!--<div id="new-image"></div>-->
+          <%= f.file_field :item_image %>
+          <script type="text/javascript">
+            $(function() {
+              function readURL(input) {
+                if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+                  reader.onload = function (e) {
+                    $('#item_image_prev').attr('src', e.target.result);
+                  }
+                  reader.readAsDataURL(input.files[0]);
+                }
+              }
+              $("#review_item_image").change(function() {
+                readURL(this);
+              });
+            });
+          </script>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control review_name' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :caption %>
+          <%= f.text_area :caption, class: 'form-control review_caption' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "投稿", class: 'btn btn-success'%>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-
-　<div class="field">
-    <%= f.label :商品名 %>
-    <%= f.text_field :name, id:"inputName", placeholder:"商品名"%>
-  </div>
-  
-  <div class="field">
-    <%= f.label :コメント %>
-    <%= f.text_field :caption, id:"inputName"%>
-  </div>
-
-  <%= f.submit "投稿" %>
-<% end %>
+</div>
