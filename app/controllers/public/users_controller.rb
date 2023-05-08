@@ -19,7 +19,8 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-
+    @user = User.find(current_user.id)
+    @reviews = @user.reviews
   end
 
   def goodlist

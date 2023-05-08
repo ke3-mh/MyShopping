@@ -1,1 +1,31 @@
 <h1>投稿一覧画面</h1>
+
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'info', user: current_user %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2><%= "#{@user.name}" + "の投稿一覧" %></h2>
+
+      <div class="row">
+        <div class="card-deck">
+          <% @reviews.each do |review| %>
+            <div class="col-sm-4">
+              <div class="card h-100">
+                <!--<div class="card-img-top">-->
+                  <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
+                <!--</div>-->
+                <div class="card-body">
+                  <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
+                  <h3 class="review-name d-flex justify-content-start"><%= review.name %></h3>
+                </div>
+              </div>
+    　　　　</div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
