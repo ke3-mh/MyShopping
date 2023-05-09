@@ -4,6 +4,10 @@ class Review < ApplicationRecord
 
   belongs_to :user
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  # scope :good_count, -> {order(good: :desc)}
+
   # バリテーション
   validates :item_image, presence: true
   validates :name, presence: true

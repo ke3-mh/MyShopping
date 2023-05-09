@@ -1,5 +1,3 @@
-<h1>投稿一覧画面</h1>
-
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
@@ -14,9 +12,9 @@
           <% @reviews.each do |review| %>
             <div class="col-sm-4">
               <div class="card h-100">
-                <!--<div class="card-img-top">-->
+                <%= link_to review_path(review.id) do %>
                   <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
-                <!--</div>-->
+                <% end %>
                 <div class="card-body">
                   <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
                   <h3 class="review-name d-flex justify-content-start"><%= review.name %></h3>

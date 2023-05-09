@@ -14,6 +14,13 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
+    if params[:latest]
+      @reviews = Review.latest
+    elsif params[:old]
+      @reviews = Review.old
+    else
+      @reviews = Review.all
+    end
   end
 
   def show
