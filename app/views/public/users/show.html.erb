@@ -1,25 +1,30 @@
+
+
 <div class='container'>
+  <h2>My Page</h2>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>My Page</h2>
-      <!-- ユーザーの詳細 -->
-      <div>
-        <%= image_tag @user.get_profile_image(100,100) %>
-      　<h3><%= @user.name %></h3>
-        <!--<h3>いいね👍 <%= @goods.count %></h3>-->
-        <!--<h3>投稿📁 <%= @reviews.count %></h3>-->
-        <h3><%= link_to "いいね👍 #{@goods.count}", users_path %></h3>
-        <h3><%= link_to "投稿📁 #{@reviews.count}", users_path %></h3>
-        <h3><%= @user.email %></h3>
-        <h3><%= link_to "編集", users_infomation_edit_path %></h3>
-      </div>
+      <% if user_signed_in? %>
+        <div class="card rounded">
+          <div class="card-header bg-white">
+            <br>
+            <div class="d-flex align-items-center justify-content-center">
+              <%= image_tag @user.get_profile_image(100,100) %>
+            </div>
+            <br>
+            <div class="card-text d-flex justify-content-center"><%= @user.name %></div>
+          </div>
+          <div class="card-body">
+            <br>
+            <p class="card-text d-flex justify-content-center"><%= link_to "いいね👍 #{@user.goods.count}", users_path %></p>
+            <p class="card-text d-flex justify-content-center"><%= link_to "投稿📁 #{@user.reviews.count}", users_path %></p>
+            <p class="card-text d-flex justify-content-center"><%= @user.email %></p>
+            <br></br>
+            <h3 class="card-text d-flex justify-content-center"><%= link_to "編集", users_infomation_edit_path, class: "btn btn-success" %></h3>
+            <br>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-<!--<p>テスト</p>-->
-<!--<script type="text/javascript">-->
-<!--  $(document).ready(function() {-->
-<!--    $("p").text("成功！！");-->
-<!--  });-->
-<!--</script>-->
