@@ -1,7 +1,6 @@
 
 <% if user_signed_in? %>
   <div class='container px-5 px-sm-0'>
-
     <div class='row'>
       <div class='col-md-3'>
         <h2>User info</h2>
@@ -10,50 +9,17 @@
       <div class='col-md-8 offset-md-1'>
         <h2>投稿一覧</h2>
         <%= render 'sort' %>
-        <div class="row">
-          <div class="card-deck">
-            <% @reviews.each do |review| %>
-              <div class="col-sm-4">
-                <div class="card h-100">
-                  <%= link_to review_path(review.id) do %>
-                    <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
-                  <% end %>
-                  <div class="card-body">
-                    <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
-                    <h3 class="review-name d-flex justify-content-start"><%= review.name %></h3>
-                  </div>
-                </div>
-      　　　　</div>
-          <% end %>
-          </div>
-        </div>
+        <%= render 'review_index', reviews:@reviews %>
       </div>
     </div>
   </div>
 <% else %>
   <div class='container px-5 px-sm-0'>
-
     <div class='row justify-content-center'>
       <div class='col-md-8 '>
         <h2>投稿一覧</h2>
         <%= render 'sort' %>
-        <div class="row">
-          <div class="card-deck">
-            <% @reviews.each do |review| %>
-              <div class="col-sm-4">
-                <div class="card h-100">
-                  <%= link_to review_path(review.id) do %>
-                    <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
-                  <% end %>
-                  <div class="card-body">
-                    <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
-                    <h3 class="review-name d-flex justify-content-start"><%= review.name %></h3>
-                  </div>
-                </div>
-      　　　　</div>
-          <% end %>
-          </div>
-        </div>
+        <%= render 'review_index', reviews:@reviews %>
       </div>
     </div>
   </div>

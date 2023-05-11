@@ -5,6 +5,11 @@
 
       <div class="text-center">
         <div class="card review-card ">
+          <%= link_to do %>
+            <div class="card-header text-muted">
+              ▲
+            </div>
+          <% end %>
           <%= image_tag @review.item_image, size: '500x400', class: "card-img-top" if @review.item_image.attached? %>
           <div class="card-body">
             <hr>
@@ -16,6 +21,11 @@
                <div class="align-self-end"><%= @user.name %></div>
             </div>
           </div>
+          <%= link_to review_path(@review.next) do %>
+            <div class="card-footer text-muted">
+              ▼
+            </div>
+          <% end %>
         </div>
       </div>
 
