@@ -37,7 +37,7 @@ class Review < ApplicationRecord
   # end
 
   def previous
-    user.notes.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
+    Review.where("id < ?", self.id).order("id DESC").first
   end
 
   def next

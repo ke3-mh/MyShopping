@@ -1,14 +1,21 @@
 <div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <div class='row justify-content-end'>
+    <!--<div class="col-sm-12 col-md-5 col-lg-5 px-5 px-sm-0 mx-auto">-->
+    <div class="col-5 align-self-center">
       <h2>投稿詳細画面</h2>
 
       <div class="text-center">
         <div class="card review-card ">
-          <%= link_to do %>
-            <div class="card-header text-muted">
-              ▲
-            </div>
+          <% if @review.previous.present? %>
+            <%= link_to review_path(@review.previous) do %>
+              <div class="card-header text-muted">
+                ▲
+              </div>
+            <% end %>
+          <% else %>
+              <div class="card-footer text-muted text-muted" data-toggle="tooltip" data-placement="bottom" title="先頭です">
+                ▲
+              </div>
           <% end %>
           <%= image_tag @review.item_image, size: '500x400', class: "card-img-top" if @review.item_image.attached? %>
           <div class="card-body">
@@ -21,14 +28,29 @@
                <div class="align-self-end"><%= @user.name %></div>
             </div>
           </div>
-          <%= link_to review_path(@review.next) do %>
-            <div class="card-footer text-muted">
-              ▼
-            </div>
+          <% if @review.next.present? %>
+            <%= link_to review_path(@review.next) do %>
+              <div class="card-footer text-muted">
+                ▼
+              </div>
+            <% end %>
+          <% else %>
+              <div class="card-footer text-muted" data-toggle="tooltip" data-placement="top" title="最後です">
+                ▼
+              </div>
           <% end %>
         </div>
       </div>
-
+    </div>
+    <div class="col-4">
+      <% if current_user.id == @review.user_id %>
+       <%= link_to "編集", edit_review_path(@review), class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>$('[data-toggle="tooltip"]').tooltip()</script>
