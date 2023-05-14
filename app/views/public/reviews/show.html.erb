@@ -26,8 +26,11 @@
             <h3 class="review-name d-flex justify-content-start"><%= @review.name %></h3>
             <p class="card-text"><%= safe_join(@review.caption.split("\n"),tag(:br)) %></p>
             <div class="d-flex justify-content-start">
-               <%= image_tag @user.get_profile_image(100,100) %>
-               <div class="align-self-end"><%= @user.name %></div>
+              <%= image_tag @user.get_profile_image(100,100) %>
+              <p class="align-self-end"><%= @user.name %></p>
+              <p class="<%= "good-" + @review.id.to_s %> text-right flex-grow-1 align-self-end">
+                <%= render "public/goods/good_btn", review: @review %>
+              </p>
             </div>
           </div>
           <% if @review.next.present? %>

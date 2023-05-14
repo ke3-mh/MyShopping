@@ -43,4 +43,8 @@ class Review < ApplicationRecord
   def next
     Review.where("id > ?", self.id).order("id ASC").first
   end
+
+  def good_by?(user)
+    goods.where(user_id: user.id).exists?
+  end
 end

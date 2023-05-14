@@ -24,7 +24,9 @@ class Public::UsersController < ApplicationController
   end
 
   def goodlist
-
+    goods = Good.where(user_id: current_user.id).pluck(:review_id)
+    @reviews = Review.find(goods)
+    @user = User.find(current_user.id)
   end
 
   private

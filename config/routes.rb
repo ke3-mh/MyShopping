@@ -34,7 +34,9 @@ Rails.application.routes.draw do
                                :show,
                                :edit,
                                :update,
-                               :destroy]
+                               :destroy] do
+        resource :goods, only: [:create, :destroy]
+      end
   end
 
 # ------------------------------------------------------------------------------

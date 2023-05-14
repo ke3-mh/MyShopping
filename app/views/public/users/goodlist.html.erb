@@ -4,7 +4,7 @@
       <%= render 'info', user: current_user %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2><%= "#{@user.name}" + "の投稿一覧" %></h2>
+      <h2><%= "#{@user.name}" + "がいいね👍した投稿一覧" %></h2>
       <%= render 'public/reviews/sort' %>
       <%= render 'public/reviews/review_index', reviews:@reviews %>
     </div>
