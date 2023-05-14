@@ -29,12 +29,22 @@ class Public::ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to review_path(@review), notice: "You have updated review successfully."
+    else
+      render "edit"
+    end
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to users_path
   end
 
   private

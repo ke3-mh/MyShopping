@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+  <h2>User info</h2>
   <div class="card">
     <div class="card-body">
       <p class="card-text d-flex justify-content-center">Log in</p>
@@ -9,8 +10,12 @@
       <div class="card-text d-flex justify-content-center"><%= user.name %></div>
       <hr>
       <p class="card-text d-flex justify-content-center"><%= link_to "いいね👍 #{user.goods.count}", users_path %></p>
-      <p class="card-text d-flex justify-content-center"><%= link_to "投稿📁 #{user.reviews.count}", users_path %></p>
-      <p class="card-text d-flex justify-content-center"><%= link_to "投稿", new_review_path %></p>
+      <p class="card-text d-flex justify-content-center"><%= link_to "投稿数📁 #{user.reviews.count}", users_path %></p>
+      <p class="card-text d-flex justify-content-end">
+        <%= link_to new_review_path do %>
+          <i class="fas fa-plus-circle fa-2x"></i>
+        <% end %>
+      </p>
     </div>
   </div>
 <% end %>
