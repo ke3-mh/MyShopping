@@ -1,2 +1,0 @@
-class TagSearchesController < ApplicationController
-end

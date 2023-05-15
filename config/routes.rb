@@ -39,6 +39,8 @@ Rails.application.routes.draw do
       end
   end
 
+  get '/tag_search', to: 'tag_searches#search'
+
 # ------------------------------------------------------------------------------
   # 管理者用
   # URL /admin/sign_in ...
