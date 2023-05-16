@@ -36,10 +36,13 @@ Rails.application.routes.draw do
                                :update,
                                :destroy] do
         resource :goods, only: [:create, :destroy]
-      end
+    end
+
+    # tag_search
+    get '/tag_search', to: 'tag_searches#search'
+
   end
 
-  get '/tag_search', to: 'tag_searches#search'
 
 # ------------------------------------------------------------------------------
   # 管理者用
