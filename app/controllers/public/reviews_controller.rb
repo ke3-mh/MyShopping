@@ -26,6 +26,7 @@ class Public::ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @user = User.find(@review.user_id)
+    @comment = Comment.new
   end
 
   def edit

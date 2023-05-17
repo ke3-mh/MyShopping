@@ -36,6 +36,7 @@ Rails.application.routes.draw do
                                :update,
                                :destroy] do
         resource :goods, only: [:create, :destroy]
+        resources :comments, only: [:create,:destroy]
     end
 
     # tag_search
