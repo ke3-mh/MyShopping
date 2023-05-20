@@ -1,13 +1,14 @@
 <% if user_signed_in? %>
-  <h2>User info</h2>
+  <h2>　</h2>
   <div class="card">
     <div class="card-body">
-      <p class="card-text d-flex justify-content-center">Log in</p>
+      <p class="card-text d-flex justify-content-center">ログインユーザー</p>
       <hr>
       <div class="d-flex align-items-center justify-content-center">
-        <%= image_tag user.get_profile_image(100,100) %>
+        <%= image_tag user.get_profile_image(100,100), style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
       </div>
-      <div class="card-text d-flex justify-content-center"><%= user.name %></div>
+      <br>
+      <div class="card-text d-flex justify-content-center"><b><%= user.name %></b></div>
       <hr>
       <p class="card-text d-flex justify-content-center"><%= link_to "いいね👍 #{user.goods.count}", users_goods_path %></p>
       <p class="card-text d-flex justify-content-center"><%= link_to "投稿数📁 #{user.reviews.count}", users_path %></p>
