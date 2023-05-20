@@ -27,14 +27,14 @@
           <div class="img-container">
             <%= image_tag @review.item_image, class: "card-img-top img_show" if @review.item_image.attached? %>
           </div>
-          <div class="card-body">
+          <div class="card-body", style="position: relative;">
             <div class="review-tag border rounded-pill "><%="　" + "#{@review.tag}" + "　" %> </div>
             <h3 class="review-name d-flex justify-content-start"><%= @review.name %></h3>
             <p class="card-text"><%= safe_join(@review.caption.split("\n"),tag(:br)) %></p>
-            <div class="d-flex justify-content-start">
+            <div class="d-flex mb-1", style="position: absolute; bottom: 0; width: 90%;">
               <%= image_tag @user.get_profile_image(70,70), style: "border-radius: 50%; width: 50px; height: 50px; object-fit:cover;" %>
               <p class="align-self-end ml-3"><%= @user.name %></p>
-              <p class="<%= "good-" + @review.id.to_s %> text-right flex-grow-1 align-self-end">
+              <p class="<%= "good-" + @review.id.to_s %> text-right align-self-end flex-grow-1">
                 <%= render "public/goods/good_btn", review: @review %>
               </p>
             </div>
