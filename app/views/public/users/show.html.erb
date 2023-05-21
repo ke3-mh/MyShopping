@@ -1,26 +1,19 @@
 <div class='container'>
-  <h2>My Page</h2>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <% if user_signed_in? %>
-        <div class="card rounded">
-          <div class="card-header bg-white">
-            <br>
-            <div class="d-flex align-items-center justify-content-center">
-              <%= image_tag @user.get_profile_image(100,100) %>
-            </div>
-            <br>
-            <div class="card-text d-flex justify-content-center"><%= @user.name %></div>
+        <h2>My Page</h2>
+        <div class="m-5", style="background-color: white; border: solid #DCDCDC; border-radius: 10px;">
+          <br>
+          <div class="text-center m-2">
+            <%= image_tag @user.get_profile_image(100,100), style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
           </div>
-          <div class="card-body">
-            <br>
-            <p class="card-text d-flex justify-content-center"><%= link_to "いいね👍 #{@user.goods.count}", users_path %></p>
-            <p class="card-text d-flex justify-content-center"><%= link_to "投稿📁 #{@user.reviews.count}", users_path %></p>
-            <p class="card-text d-flex justify-content-center"><%= @user.email %></p>
-            <br></br>
-            <h3 class="card-text d-flex justify-content-center"><%= link_to "編集", users_infomation_edit_path, class: "btn btn-success" %></h3>
-            <br>
-          </div>
+          <p class="text-center"><b style="font-size: 120%;"><%= @user.name %></b></p>
+          <hr>
+          <p class="text-center"><%= link_to "いいね👍 #{@user.goods.count}", users_path %></p>
+          <p class="text-center"><%= link_to "投稿📁 #{@user.reviews.count}", users_path %></p>
+          <p class="text-center"><%= @user.email %></p>
+          <div class="text-center m-5"><%= link_to "編集", users_infomation_edit_path, class: "btn btn-success" %></div>
         </div>
       <% end %>
     </div>

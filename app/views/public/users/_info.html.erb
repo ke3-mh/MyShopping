@@ -1,20 +1,20 @@
 <% if user_signed_in? %>
   <h2>　</h2>
-  <div class="card">
-    <div class="card-body">
-      <p class="card-text d-flex justify-content-center">ログインユーザー</p>
-      <hr>
+  <div style="background-color: white; border: solid #DCDCDC; border-radius: 10px;">
+    <div>
+      <p class="text-center", style="border-bottom: solid #DCDCDC;">ログインユーザー</p>
+
       <div class="d-flex align-items-center justify-content-center">
         <%= image_tag user.get_profile_image(100,100), style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
       </div>
       <br>
-      <div class="card-text d-flex justify-content-center"><b><%= user.name %></b></div>
+      <p class="text-center"><b style="font-size: 120%;"><%= user.name %></b></p>
       <hr>
-      <p class="card-text d-flex justify-content-center"><%= link_to "いいね👍 #{user.goods.count}", users_goods_path %></p>
-      <p class="card-text d-flex justify-content-center"><%= link_to "投稿数📁 #{user.reviews.count}", users_path %></p>
-      <p class="card-text d-flex justify-content-end">
+      <p class="text-center"><%= link_to "いいね👍 #{user.goods.count}", users_goods_path %></p>
+      <p class="text-center"><%= link_to "投稿数📁 #{user.reviews.count}", users_path %></p>
+      <p class="text-right pr-4">
         <%= link_to new_review_path do %>
-          <i class="fas fa-plus-circle fa-2x"></i>
+          <i class="fas fa-plus-circle", style="font-size: 280%;"></i>
         <% end %>
       </p>
     </div>

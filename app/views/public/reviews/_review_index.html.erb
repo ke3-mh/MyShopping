@@ -1,17 +1,15 @@
 <div class="row">
-  <div class="card-deck">
-    <% reviews.each do |review| %>
-      <div class="col-sm-4">
-        <div class="card h-100">
-          <%= link_to review_path(review.id) do %>
-            <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
-          <% end %>
-          <div class="card-body">
-            <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
-            <h3 class="review-name d-flex justify-content-start"><%= review.name %></h3>
-          </div>
+  <% reviews.each do |review| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card">
+        <%= link_to review_path(review.id) do %>
+          <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
+          <div class="review-name"><b style="font-size: 130%;"><%= review.name %></b></div>
         </div>
-　　　　</div>
+      </div>
+    </div>
   <% end %>
-  </div>
 </div>

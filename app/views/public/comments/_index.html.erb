@@ -1,17 +1,19 @@
 <h2>コメント：<%= review.comments.count %>件</h2>
-<table class="table">
-  <tbody>
-    <% review.comments.each do |comment| %>
-      <tr>
-        <td><%= comment.comment_text %></td>
-        <td>
-          <%if user_signed_in? %>
-            <% if comment.user.id == current_user.id %>
-              <%= link_to "削除", review_comment_path(review, comment), method: :delete, remote: false, class: "btn btn-outline-danger"%>
+<div class="comment_index">
+  <table class="table">
+    <tbody>
+      <% review.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.comment_text %></td>
+          <td>
+            <%if user_signed_in? %>
+              <% if comment.user.id == current_user.id %>
+                <%= link_to "削除", review_comment_path(review, comment), method: :delete, remote: false, class: "btn btn-outline-danger"%>
+              <% end %>
             <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

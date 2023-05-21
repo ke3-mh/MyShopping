@@ -59,3 +59,28 @@ body{
   width: 100%;
   height: 100%;
 }
+
+.comment_index{
+  height: 300px;
+}
+
+// div.text-card-container {
+//   padding-left: 9px;
+//   padding-right: 9px;
+//   margin-bottom: 50px;
+// }
+
+// div.content-card {
+//   height: 350px;
+//   max-width: 360px;
+//   margin: 0 auto;
+// }
+
+.card, .index {
+  margin: 0 auto 40px;
+  max-width: 376px;
+  height: 230px;
+}
+.card-body p {
+  text-align: left;
+}
