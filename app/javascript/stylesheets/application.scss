@@ -2,7 +2,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 body{
-  background-color: #FFF8DC;
+  background-color: #ffffe0;
 }
 
 #img_prev {
@@ -79,8 +79,12 @@ body{
 .card, .index {
   margin: 0 auto 40px;
   max-width: 376px;
-  height: 230px;
+  height: 260px;
 }
 .card-body p {
   text-align: left;
+}
+
+.card-header{
+  padding: 0 10px 0 10px;
 }

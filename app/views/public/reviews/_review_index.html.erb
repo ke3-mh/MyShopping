@@ -2,13 +2,23 @@
   <% reviews.each do |review| %>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card">
-        <%= link_to review_path(review.id) do %>
-          <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
-        <% end %>
-        <div class="card-body">
-          <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
-          <div class="review-name"><b style="font-size: 130%;"><%= review.name %></b></div>
+        <div class="card-header">
+          <%= review.created_at.strftime('%Y/%m/%d') %>
         </div>
+        <%= link_to review_path(review.id), class: "text-dark" do %>
+          <%= image_tag review.item_image, size: '200x100', class: "card-img-top" %>
+
+          <div class="card-body">
+            <!--<%= link_to users_mypage_path, class: "text-dark" do %>-->
+            <div class="review-tag border rounded-pill "><%="　" + "#{review.tag}" + "　" %> </div>
+            <!--<% end %>-->
+            <div class="review-name"><b style="font-size: 130%;"><%= review.name %></b></div>
+            <diV class="review-user d-flex align-items-center mt-2">
+              <%= image_tag @user.find(review.user_id).get_profile_image(50,50), style: "border-radius: 50%; width: 30px; height: 30px; object-fit:cover;" %>
+              <div class="ml-2"><%= review.user.name %></div>
+            </diV>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
