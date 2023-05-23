@@ -6,7 +6,7 @@
     <div class='col-md-8 offset-md-1'>
       <h2><%= "#{@user.name}" + "の投稿一覧" %></h2>
       <%= render 'public/reviews/sort' %>
-      <%= render 'public/reviews/review_index', reviews:@reviews %>
+      <%= render 'public/reviews/review_index', reviews:@reviews, user:@user %>
     </div>
   </div>
 </div>

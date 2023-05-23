@@ -21,7 +21,6 @@ class Public::ReviewsController < ApplicationController
     else
       @reviews = Review.all
     end
-    @user = User.all
   end
 
   def show

@@ -14,7 +14,7 @@
             <!--<% end %>-->
             <div class="review-name"><b style="font-size: 130%;"><%= review.name %></b></div>
             <diV class="review-user d-flex align-items-center mt-2">
-              <%= image_tag @user.find(review.user_id).get_profile_image(50,50), style: "border-radius: 50%; width: 30px; height: 30px; object-fit:cover;" %>
+              <%= image_tag User.find(review.user_id).get_profile_image(50,50), style: "border-radius: 50%; width: 30px; height: 30px; object-fit:cover;" %>
               <div class="ml-2"><%= review.user.name %></div>
             </diV>
           </div>

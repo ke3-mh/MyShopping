@@ -14,16 +14,14 @@
  *= require_self
  */
 
-#img_prev {
-    height: 100px;
-    width: 100px;
-}
-
-.card review-card {
-  margin: 0 auto 60px;
-  max-width: 376px;
-  height: 370px;
-}
-.card-text {
-  text-align: left;
+body{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffe0;
+  background-image: url('app/images/shopping_48px.png');
+  /*background-position: center center;*/
+  /*background-repeat: repeat;*/
+  /*background-size: cover;*/
+  /*background-attachment: fixed;*/
 }
