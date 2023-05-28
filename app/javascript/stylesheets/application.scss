@@ -13,6 +13,12 @@ body{
   // background-attachment: fixed;
 }
 
+.page-title {
+  display:inline-flex;
+  background-color: white;
+  border: 6px inset #009b9f;
+}
+
 #img_prev {
     height: 100px;
     width: 100px;
@@ -30,6 +36,7 @@ body{
 }
 .card-text {
   text-align: left;
+  min-height: 160px;
 }
 
 .review-tag {
@@ -87,7 +94,7 @@ body{
 .card, .index {
   margin: 0 auto 40px;
   max-width: 376px;
-  height: 260px;
+  height: 290px;
 }
 .card-body p {
   text-align: left;
@@ -95,4 +102,20 @@ body{
 
 .card-header{
   padding: 0 10px 0 10px;
+}
+
+.comment_table{
+}
+
+.com{
+  width: 235px;
+  word-wrap: break-word;
+}
+
+.com_body{
+  background-color: white;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 600px;
 }

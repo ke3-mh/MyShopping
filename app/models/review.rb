@@ -15,9 +15,9 @@ class Review < ApplicationRecord
 
   # バリテーション
   validates :item_image, presence: true
-  validates :name, presence: true
-  validates :tag,presence:true
-  validates :caption, presence: true
+  validates :name, presence: true, length: { minimum: 1, maximum: 20 }
+  validates :tag,presence:true, length: { minimum: 1, maximum: 10 }
+  validates :caption, presence: true, length: { minimum: 1, maximum: 300 }
 
   # 商品画像　保存
   # has_many_attached :item_images

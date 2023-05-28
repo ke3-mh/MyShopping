@@ -1,14 +1,16 @@
 <h2>コメント：<%= review.comments.count %>件</h2>
-<div class="comment_index">
+<div class="comment_table">
   <table class="table">
-    <tbody>
+    <tbody class="com_body">
       <% review.comments.each do |comment| %>
         <tr>
-          <td><%= comment.comment_text %></td>
           <td>
+            <p class="com"><%= comment.comment_text %></P>
+          </td>
+          <td style="vertical-align:middle;">
             <%if user_signed_in? %>
               <% if comment.user.id == current_user.id %>
-                <%= link_to "削除", review_comment_path(review, comment), method: :delete, remote: false, class: "btn btn-outline-danger"%>
+                <%= link_to "削除", review_comment_path(review, comment), method: :delete, remote: false, class: "btn btn-sm btn-outline-danger"%>
               <% end %>
             <% end %>
           </td>

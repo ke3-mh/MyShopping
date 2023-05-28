@@ -5,7 +5,7 @@
     </div>
     <div class="col-5 align-self-center">
       <div class="d-flex">
-        <h2 class="flex-grow-1">投稿詳細画面</h2>
+        <h2 class="flex-grow-1 ml-4 page-title px-3">投稿詳細画面</h2>
         <%= link_to(reviews_path, class: 'align-self-center') do %>
           <i class="fas fa-times-circle fa-2x" style="color: #ff7f7f;"></i>
         <% end %>
@@ -27,7 +27,7 @@
           <div class="img-container">
             <%= image_tag @review.item_image, class: "card-img-top img_show" if @review.item_image.attached? %>
           </div>
-          <div class="card-body", style="position: relative;">
+          <div class="card-body", style="position: relative; min-height: 150px">
             <div class="review-tag border rounded-pill "><%="　" + "#{@review.tag}" + "　" %> </div>
             <h3 class="review-name d-flex justify-content-start"><%= @review.name %></h3>
             <p class="card-text"><%= safe_join(@review.caption.split("\n"),tag(:br)) %></p>
