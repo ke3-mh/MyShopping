@@ -1,4 +1,4 @@
-if (document.URL.match(/new/)){
+if (document.URL.match(/anew/)){
   document.addEventListener('DOMContentLoaded', () => {
 
     const createImageHTML = (blob) => {
