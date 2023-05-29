@@ -6,7 +6,7 @@
         <div class="m-5", style="background-color: white; border: solid #DCDCDC; border-radius: 10px;">
           <br>
           <div class="text-center m-2">
-            <%= image_tag @user.get_profile_image(100,100), style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
+            <%= image_tag @user.profile_image, style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
           </div>
           <p class="text-center"><b style="font-size: 120%;"><%= @user.name %></b></p>
           <hr>

@@ -9,8 +9,9 @@
         <%= render 'layouts/errors', obj: @review %>
 
         <div class="form-group">
-          <div id="new-image"><%= image_tag @review.item_image, size: '500x400', id: "item_image_prev" %></div>
+          <div id="new-image"><%= image_tag @review.item_image, size: '470x400', id: "item_image_prev" %></div>
           <%= f.file_field :item_image %>
+          
           <script type="text/javascript">
             $(function() {
               function readURL(input) {
