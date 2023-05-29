@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ユーザー名
+      tag:
+        neme: タグ名
+      review:
+        name: 商品名
+        caption: 評価・コメント
+        tab: タグ名
+        item_image: 商品画像
+  activemodel:   # Formオブジェクトを用いた場合
+     attributes:
+       order_object:
+         post_code: 郵便番号

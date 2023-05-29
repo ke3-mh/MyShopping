@@ -1,9 +1,9 @@
 <% if obj.errors.any? %>
   <div id="error_explanation">
-    <h3><%= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h3>
-    <ul>
+    <h4 id="error_title"><%= pluralize(obj.errors.count, "error") %> ：保存に失敗しました。</h3>
+    <ul class="error_list">
       <% obj.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class="error_list"><%= message %></li>
       <% end %>
     </ul>
   </div>
