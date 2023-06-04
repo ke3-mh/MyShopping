@@ -1,5 +1,5 @@
 <%= form_with url: tag_search_path, local: true, method: :get do |f| %>
- <div class="input-group">
+  <div class="input-group">
     <%= f.text_field :word,:placeholder => "タグ検索", class: "form-control" %>
     <span class="input-group-btn">
       <%= button_tag type: "submit", class: "btn btn-primary" do %>
